@@ -20,3 +20,6 @@ You can view the screenshots here:  https://github.com/div1681/NEWS_APP/tree/mai
 
 I was not able to add/import the sample JSON file for the articles, so I have added my own text content in place of the data.
 
+## Recording
+
+You can view the UI of the app: https://drive.google.com/file/d/1qb2usyNT6r_x8wAFRrIU5PQPYmtjTMu8/view?usp=sharing
