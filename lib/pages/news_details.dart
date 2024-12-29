@@ -19,7 +19,7 @@ class NewsDetails extends StatelessWidget {
         ),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(18.0),
+        padding: EdgeInsets.all(18.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
