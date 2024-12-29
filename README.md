@@ -1,16 +1,22 @@
-# news_app
 
-A new Flutter project.
+# NEWS_APP
 
-## Getting Started
+This is a Flutter app that displays a list of news articles, with details page for individual articles, a search screen, a saved screen, and a profile page.
 
-This project is a starting point for a Flutter application.
+## Screenshots
 
-A few resources to get you started if this is your first Flutter project:
+You can view the screenshots here:  https://github.com/div1681/NEWS_APP/tree/main/screenshots  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Features
+
+- **Home Page**: Displays a list of news articles with an option to view the article details.
+- **Detail Page**: Shows full article details with options to save or share the article.
+- **Search Screen**: Allows users to search for articles using a basic text input field.
+- **Saved Screen**: A placeholder for saved articles (currently empty).
+- **Profile Screen**: Displays user profile information (currently hardcoded).
+
+## JSON Note
+
+I was not able to add/import the sample JSON file for the articles, so I have added my own text content in place of the data.
+
