@@ -47,23 +47,36 @@ class HomePage extends StatelessWidget {
         children: [
           Row(
             children: [
-              MyButton(label: "Tech", onPressed: () {}),
-              MyButton(label: "Sports", onPressed: () {}),
-              MyButton(label: "Cinema", onPressed: () {}),
+              MyButton(
+                label: "Tech",
+                api:
+                    "https://newsapi.org/v2/top-headlines?category=technology&apiKey=2004aea50dd449c9b8ea63e87d203708",
+                onPressed: () {},
+              ),
+              MyButton(
+                  label: "Sports",
+                  api:
+                      "https://newsapi.org/v2/top-headlines?category=sports&apiKey=2004aea50dd449c9b8ea63e87d203708",
+                  onPressed: () {}),
+              MyButton(
+                  label: "Cinema",
+                  api:
+                      "https://newsapi.org/v2/top-headlines?category=entertainment&apiKey=2004aea50dd449c9b8ea63e87d203708",
+                  onPressed: () {}),
             ],
           ),
-          Expanded(
-              child: ListView.builder(
-                  itemCount: 4,
-                  itemBuilder: (context, index) {
-                    return Padding(
-                      padding: EdgeInsets.only(
-                          bottom: index == news.length - 1 ? 24.0 : 0),
-                      child: NewsTile(
-                        news: news[index],
-                      ),
-                    );
-                  })),
+          // Expanded(
+          //     child: ListView.builder(
+          //         itemCount: 4,
+          //         itemBuilder: (context, index) {
+          //           return Padding(
+          //             padding: EdgeInsets.only(
+          //                 bottom: index == news.length - 1 ? 24.0 : 0),
+          //             child: NewsTile(
+
+          //             ),
+          //           );
+          //         })),
         ],
       ),
       backgroundColor: Colors.amber[50],

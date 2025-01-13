@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:news_app/pages/news_details.dart';
 
 class NewsTile extends StatelessWidget {
-  final List<String> news;
+  final List<dynamic> articles;
 
-  NewsTile({required this.news});
+  NewsTile({required this.articles});
 
   @override
   Widget build(BuildContext context) {
@@ -12,8 +12,8 @@ class NewsTile extends StatelessWidget {
       padding: EdgeInsets.only(top: 24, left: 18, right: 18),
       child: GestureDetector(
         onTap: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => NewsDetails(news: news)));
+          //  Navigator.push(context,
+          //      MaterialPageRoute(builder: (context) => NewsDetails(news: news)));
         },
         child: Container(
           decoration: BoxDecoration(
@@ -35,7 +35,7 @@ class NewsTile extends StatelessWidget {
           width: 390,
           child: Center(
               child: Text(
-            news[0],
+            articles[1]['title'],
             style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
           )),
         ),
