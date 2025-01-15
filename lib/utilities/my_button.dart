@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MyButton extends StatelessWidget {
+// ignore: must_be_immutable
+class MyButton extends StatefulWidget {
   final String label;
-  final VoidCallback onPressed;
-  final bool isSelected; // Indicates if this button is currently active.
+  VoidCallback onPressed;
+  final bool isSelected;
 
-  const MyButton({
+  MyButton({
     super.key,
     required this.label,
     required this.onPressed,
@@ -13,31 +14,34 @@ class MyButton extends StatelessWidget {
   });
 
   @override
+  State<MyButton> createState() => _MyButtonState();
+}
+
+class _MyButtonState extends State<MyButton> {
+  @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 12),
-      child: OutlinedButton(
+      padding: EdgeInsets.only(left: 18, top: 20, right: 0),
+      child: (OutlinedButton(
         style: OutlinedButton.styleFrom(
-          minimumSize: const Size(105, 45),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          side: BorderSide(
-            color: isSelected ? Colors.black : Colors.grey[500]!,
-            width: 2,
-          ),
-          backgroundColor: isSelected ? Colors.amber[300] : Colors.amber[50],
-        ),
+            minimumSize: Size(105, 45),
+            shape:
+                RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+            side: BorderSide(
+                color: widget.isSelected ? Colors.white : Colors.black,
+                width: 2),
+            backgroundColor:
+                widget.isSelected ? Colors.black : Colors.amber[50]),
         child: Text(
-          label,
+          widget.label,
           style: TextStyle(
-            color: isSelected ? Colors.black : Colors.grey[800],
-            fontSize: 18,
-            fontWeight: isSelected ? FontWeight.bold : FontWeight.normal,
-          ),
+              color: widget.isSelected ? Colors.amber : Colors.black,
+              fontSize: 20),
         ),
-        onPressed: onPressed,
-      ),
+        onPressed: () {
+          widget.onPressed();
+        },
+      )),
     );
   }
 }

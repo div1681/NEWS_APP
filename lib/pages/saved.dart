@@ -8,8 +8,6 @@ class Saved extends StatefulWidget {
 }
 
 class _SavedState extends State<Saved> {
-  //final List<ArticleClass> savedArticles;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,84 +38,9 @@ class _SavedState extends State<Saved> {
           ),
         ),
       ),
-      // body: widget.savedArticles.isEmpty
-      //     ? Center(
-      //         child: Text(
-      //           "No articles saved yet!",
-      //           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-      //         ),
-      //       )
-      //     : ListView.builder(
-      //         itemCount: widget.savedArticles.length,
-      //         itemBuilder: (context, index) {
-      //           final article = widget.savedArticles[index];
-      //           return Padding(
-      //             padding: const EdgeInsets.only(top: 25.0),
-      //             child: Container(
-      //               decoration: BoxDecoration(
-      //                   color: Colors.amber[100],
-      //                   borderRadius: BorderRadius.circular(18)),
-      //               child: Column(
-      //                 crossAxisAlignment: CrossAxisAlignment.start,
-      //                 children: [
-      //                   Stack(
-      //                     children: [
-      //                       ClipRRect(
-      //                         borderRadius: BorderRadius.only(
-      //                           topLeft: Radius.circular(18),
-      //                           topRight: Radius.circular(18),
-      //                         ),
-      //                         child: Image.network(
-      //                           article.urltoimage,
-      //                           height: 250,
-      //                           width: double.infinity,
-      //                           fit: BoxFit.cover,
-      //                           loadingBuilder: (BuildContext context,
-      //                               Widget child,
-      //                               ImageChunkEvent? loadingProgress) {
-      //                             if (loadingProgress == null) return child;
-      //                             return Center(
-      //                               child: CircularProgressIndicator(
-      //                                 value:
-      //                                     loadingProgress.expectedTotalBytes !=
-      //                                             null
-      //                                         ? loadingProgress
-      //                                                 .cumulativeBytesLoaded /
-      //                                             (loadingProgress
-      //                                                     .expectedTotalBytes ??
-      //                                                 1)
-      //                                         : null,
-      //                               ),
-      //                             );
-      //                           },
-      //                         ),
-      //                       ),
-      //                     ],
-      //                   ),
-      //                   Container(
-      //                     decoration: BoxDecoration(
-      //                       color: Colors.amber[100],
-      //                       borderRadius: BorderRadius.only(
-      //                         bottomLeft: Radius.circular(18),
-      //                         bottomRight: Radius.circular(18),
-      //                       ),
-      //                     ),
-      //                     padding: EdgeInsets.all(12),
-      //                     child: Text(
-      //                       article.title,
-      //                       style: TextStyle(
-      //                         fontWeight: FontWeight.bold,
-      //                         fontSize: 16,
-      //                         color: Colors.black,
-      //                       ),
-      //                     ),
-      //                   ),
-      //                 ],
-      //               ),
-      //             ),
-      //           );
-      //         },
-      //       ),
+      body: Container(
+        color: Colors.amber[50],
+      ),
     );
   }
 }

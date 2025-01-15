@@ -11,10 +11,8 @@ Future<List<ArticleClass>> getNews(String api) async {
       var body = jsonDecode(response.body);
       var articles = body['articles'] as List<dynamic>;
 
-      // Create an empty list to hold valid articles
       List<ArticleClass> articleList = [];
 
-      // Use a for loop to filter and process articles
       for (var article in articles) {
         if (article['urlToImage'] != null && article['urlToImage'].isNotEmpty) {
           articleList.add(ArticleClass(

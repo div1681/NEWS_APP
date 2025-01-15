@@ -11,28 +11,31 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   List<ArticleClass> savedArticles = [];
+  String selectedCategory = 'general';
+
+  final Map<String, String> categoryAPI = {
+    'general':
+        "https://newsapi.org/v2/top-headlines?category=general&apiKey=2004aea50dd449c9b8ea63e87d203708",
+    'Tech':
+        'https://newsapi.org/v2/top-headlines?category=technology&apiKey=2004aea50dd449c9b8ea63e87d203708',
+    'Sports':
+        'https://newsapi.org/v2/top-headlines?category=sports&apiKey=2004aea50dd449c9b8ea63e87d203708',
+    'Cinema':
+        'https://newsapi.org/v2/top-headlines?category=entertainment&apiKey=2004aea50dd449c9b8ea63e87d203708',
+  };
+  late Future<List<ArticleClass>> gotArticles =
+      getNews(categoryAPI['general']!);
+  void selectCategory(String category) {
+    setState(() {
+      selectedCategory = category;
+      gotArticles = getNews(categoryAPI[category]!);
+    });
+  }
 
   void saveArticle(ArticleClass article) {
     setState(() {
       savedArticles.add(article);
     });
-  }
-
-  String selectedAPI = " ";
-  late Future<List<ArticleClass>> gotArticles;
-
-  void getArticles(String api) {
-    setState(() {
-      selectedAPI = api;
-      gotArticles = getNews(selectedAPI);
-    });
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    getArticles(
-        'https://newsapi.org/v2/top-headlines?category=general&apiKey=2004aea50dd449c9b8ea63e87d203708');
   }
 
   @override
@@ -73,23 +76,23 @@ class _HomePageState extends State<HomePage> {
             children: [
               MyButton(
                 label: "Tech",
+                isSelected: selectedCategory == 'Tech',
                 onPressed: () {
-                  getArticles(
-                      "https://newsapi.org/v2/top-headlines?category=technology&apiKey=2004aea50dd449c9b8ea63e87d203708");
+                  selectCategory('Tech');
                 },
               ),
               MyButton(
                 label: "Sports",
+                isSelected: selectedCategory == 'Sports',
                 onPressed: () {
-                  getArticles(
-                      "https://newsapi.org/v2/top-headlines?category=sports&apiKey=2004aea50dd449c9b8ea63e87d203708");
+                  selectCategory('Sports');
                 },
               ),
               MyButton(
                 label: "Cinema",
+                isSelected: selectedCategory == 'Cinema',
                 onPressed: () {
-                  getArticles(
-                      "https://newsapi.org/v2/top-headlines?category=entertainment&apiKey=2004aea50dd449c9b8ea63e87d203708");
+                  selectCategory('Cinema');
                 },
               ),
             ],
@@ -159,22 +162,7 @@ class _HomePageState extends State<HomePage> {
                                             top: 10,
                                             right: 10,
                                             child: IconButton(
-                                              onPressed: () {
-                                                // Navigator.push(
-                                                //   context,
-                                                //   MaterialPageRoute(
-                                                //     builder: (context) => Saved(
-                                                //         savedArticles:
-                                                //             savedArticles),
-                                                //   ),
-                                                // );
-                                                // saveArticle(article);
-                                                // ScaffoldMessenger.of(context)
-                                                //     .showSnackBar(SnackBar(
-                                                //   content: Text(
-                                                //       '${article.title} has been saved!'),
-                                                // ));
-                                              },
+                                              onPressed: () {},
                                               icon: Image.asset(
                                                 'lib/icons/saved.png',
                                                 height: 32,
@@ -209,7 +197,6 @@ class _HomePageState extends State<HomePage> {
                                       child: Text(
                                         article.title,
                                         style: TextStyle(
-                                          //fontWeight: FontWeight.bold,
                                           fontSize: 18,
                                           color: Colors.black,
                                         ),
