@@ -3,7 +3,6 @@ import 'package:news_app/pages/profile_page.dart';
 import 'package:news_app/utilities/get_news.dart';
 import 'package:news_app/utilities/my_button.dart';
 import 'package:news_app/utilities/article_class.dart';
-import 'saved.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -119,8 +118,8 @@ class _HomePageState extends State<HomePage> {
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    // Image with circular top borders
                                     Stack(
+                                      clipBehavior: Clip.none,
                                       children: [
                                         ClipRRect(
                                           borderRadius: BorderRadius.only(
@@ -129,7 +128,7 @@ class _HomePageState extends State<HomePage> {
                                           ),
                                           child: Image.network(
                                             article.urltoimage,
-                                            height: 250,
+                                            //height: 250,
                                             width: double.infinity,
                                             fit: BoxFit.cover,
                                             loadingBuilder:
@@ -182,10 +181,22 @@ class _HomePageState extends State<HomePage> {
                                                 width: 32,
                                                 color: Colors.amber[300],
                                               ),
-                                            ))
+                                            )),
+                                        Positioned(
+                                            top: 10,
+                                            left: 15,
+                                            child: Container(
+                                                padding: EdgeInsets.all(8),
+                                                child: Text(
+                                                  article.name ?? '',
+                                                  style: TextStyle(
+                                                      color: Colors.amber,
+                                                      fontSize: 18,
+                                                      fontWeight:
+                                                          FontWeight.bold),
+                                                ))),
                                       ],
                                     ),
-
                                     Container(
                                       decoration: BoxDecoration(
                                         color: Colors.amber[100],
@@ -198,8 +209,8 @@ class _HomePageState extends State<HomePage> {
                                       child: Text(
                                         article.title,
                                         style: TextStyle(
-                                          fontWeight: FontWeight.bold,
-                                          fontSize: 16,
+                                          //fontWeight: FontWeight.bold,
+                                          fontSize: 18,
                                           color: Colors.black,
                                         ),
                                       ),

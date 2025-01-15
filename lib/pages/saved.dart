@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:news_app/utilities/article_class.dart';
 
 class Saved extends StatefulWidget {
   const Saved({super.key});

@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news_app/pages/home_page.dart';
 import 'package:news_app/pages/saved.dart';
 import 'package:news_app/pages/search_page.dart';
-import 'package:provider/provider.dart'; // Import Provider
-import 'Articleprovider.dart'; // Import SavedArticlesProvider
+import 'package:news_app/utilities/article_class.dart';
 
 class Navigationbar extends StatefulWidget {
   const Navigationbar({super.key});
@@ -14,6 +13,7 @@ class Navigationbar extends StatefulWidget {
 
 class _NavigationbarState extends State<Navigationbar> {
   int index1 = 0;
+  List<ArticleClass> savedArticles = [];
 
   void navigate(int index) {
     setState(() {
@@ -23,21 +23,21 @@ class _NavigationbarState extends State<Navigationbar> {
 
   final List<Widget> pages = [
     HomePage(),
-    const SearchPage(),
-    const Saved(), // No need to pass savedArticles
+    SearchPage(),
+    Saved(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: pages[index1],
+      body: index1 == 2 ? Saved() : pages[index1],
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Colors.amber[300],
         selectedItemColor: Colors.black,
-        selectedLabelStyle: const TextStyle(fontWeight: FontWeight.bold),
+        selectedLabelStyle: TextStyle(fontWeight: FontWeight.bold),
         selectedFontSize: 22,
         unselectedFontSize: 18,
-        unselectedLabelStyle: const TextStyle(color: Colors.black),
+        unselectedLabelStyle: TextStyle(color: Colors.black),
         onTap: navigate,
         currentIndex: index1,
         items: [
@@ -46,7 +46,7 @@ class _NavigationbarState extends State<Navigationbar> {
               'lib/icons/house-blank.png',
               width: 26,
               height: 26,
-              color: const Color(0xFF4E4E4E),
+              color: Color(0xFF4E4E4E),
             ),
             label: "Home",
           ),
@@ -55,7 +55,7 @@ class _NavigationbarState extends State<Navigationbar> {
               'lib/icons/search (1).png',
               width: 26,
               height: 26,
-              color: const Color(0xFF4E4E4E),
+              color: Color(0xFF4E4E4E),
             ),
             label: "Search",
           ),
@@ -64,7 +64,7 @@ class _NavigationbarState extends State<Navigationbar> {
               'lib/icons/saved.png',
               height: 26,
               width: 26,
-              color: const Color(0xFF4E4E4E),
+              color: Color(0xFF4E4E4E),
             ),
             label: "Saved",
           ),
