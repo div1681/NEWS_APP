@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'get_news.dart';
 
 // ignore: must_be_immutable
 class MyButton extends StatefulWidget {
@@ -39,6 +40,7 @@ class _MyButtonState extends State<MyButton> {
             pressed = !pressed;
           });
           widget.onPressed();
+          //getNews(widget.api);
         },
       )),
     );

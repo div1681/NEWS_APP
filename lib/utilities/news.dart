@@ -4,7 +4,7 @@ import 'package:news_app/pages/news_details.dart';
 class NewsTile extends StatelessWidget {
   final List<String> news;
 
-  NewsTile({required this.news});
+  NewsTile({super.key, required this.news});
 
   @override
   Widget build(BuildContext context) {
